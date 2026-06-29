@@ -284,7 +284,12 @@ function App() {
       search: "Stajyer ara...",
       changeStatus: "Statü Değiştir",
       delete: "Sil",
+      cancel: "Vazgeç",
+      ok: "Tamam",
       card: "STAJYER KARTI",
+      status: "Statü",
+      startLabel: "Başlangıç",
+      endLabel: "Bitiş",
       duration: "Toplam Süre",
       details: "Detayları Gör",
       day: "gün",
@@ -315,7 +320,12 @@ function App() {
       search: "Search intern...",
       changeStatus: "Change Status",
       delete: "Delete",
+      cancel: "Cancel",
+      ok: "OK",
       card: "INTERN CARD",
+      status: "Status",
+      startLabel: "Start",
+      endLabel: "End",
       duration: "Total Duration",
       details: "View Details",
       day: "days",
@@ -364,15 +374,15 @@ function App() {
                   <span>{dialog.stajyer.departman || "Departman girilmedi"}</span>
                 </div>
                 <div>
-                  <b>Statu</b>
+                  <b>{t.status}</b>
                   <span>{statuEtiketleri[dialog.stajyer.statu] || t.planned}</span>
                 </div>
                 <div>
-                  <b>Baslangic</b>
+                  <b>{t.startLabel}</b>
                   <span>{tarihYaz(dialog.stajyer.baslangic_tarihi)}</span>
                 </div>
                 <div>
-                  <b>Bitis</b>
+                  <b>{t.endLabel}</b>
                   <span>{tarihYaz(dialog.stajyer.bitis_tarihi)}</span>
                 </div>
                 <div>
@@ -403,7 +413,7 @@ function App() {
               {dialog.type === "delete" && dialog.stajyer ? (
                 <>
                   <button type="button" className="secondary" onClick={() => setDialog(null)}>
-                    Vazgec
+                    {t.cancel}
                   </button>
                   <button type="button" className="danger" onClick={() => stajyerSilOnayla(dialog.stajyer)}>
                     Sil
@@ -411,7 +421,7 @@ function App() {
                 </>
               ) : (
                 <button type="button" onClick={() => setDialog(null)}>
-                  Tamam
+                  {t.ok}
                 </button>
               )}
             </div>
@@ -596,7 +606,7 @@ function App() {
 
               <div className="actions">
                 <button type="button" className="secondary" onClick={() => detaylariGor(stajyer)}>
-                  {t.details || "Detaylari Gor"}
+                  {t.details}
                 </button>
                 <button onClick={() => statuDegistir(stajyer)}>{t.changeStatus}</button>
               </div>
