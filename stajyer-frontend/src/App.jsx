@@ -10,7 +10,6 @@ function App() {
   const [filtre, setFiltre] = useState("all");
   const [fotoYukleniyor, setFotoYukleniyor] = useState(false);
   const [kayitYapiliyor, setKayitYapiliyor] = useState(false);
-  const [mesaj, setMesaj] = useState("");
   const [tema, setTema] = useState(localStorage.getItem("tema") || "light");
   const [dil, setDil] = useState(localStorage.getItem("dil") || "tr");
   const [dialog, setDialog] = useState(null);
@@ -352,8 +351,6 @@ function App() {
 
   return (
     <div className="app-shell">
-      {mesaj && <div className="toast">{mesaj}</div>}
-
       {dialog && (
         <div className="dialog-backdrop" role="presentation" onClick={() => setDialog(null)}>
           <div className="dialog" role="dialog" aria-modal="true" onClick={(e) => e.stopPropagation()}>
