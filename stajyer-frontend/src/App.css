@@ -1,0 +1,833 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f7fb;
+  color: #111827;
+  overflow-x: hidden;
+}
+
+.app-shell {
+  width: 100%;
+}
+.page{
+    width:100%;
+    max-width:1600px;
+    margin:0 auto;
+    padding:30px 30px 60px;
+}
+.hero {
+  background: linear-gradient(135deg, #2563eb, #1e3a8a);
+  color: white;
+  border-radius: 28px;
+  padding: 42px 34px;
+  margin-bottom: 24px;
+  text-align: left;
+  box-shadow: 0 18px 45px rgba(37, 99, 235, 0.24);
+}
+
+.hero-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 38px;
+}
+
+.hero-content {
+  max-width: 760px;
+}
+
+.hero span {
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 1.4px;
+  opacity: 0.9;
+}
+
+.hero h1 {
+  margin: 10px 0 14px;
+  font-size: clamp(38px, 4vw, 58px);
+  line-height: 1;
+}
+
+.hero p {
+  margin: 0;
+  max-width: 720px;
+  font-size: 18px;
+  line-height: 1.5;
+  opacity: 0.94;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 22px;
+  padding: 24px;
+  text-align: center;
+  box-shadow: 0 12px 35px rgba(15, 23, 42, 0.08);
+}
+
+.stat-card span {
+  display: block;
+  color: #64748b;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.stat-card strong {
+  font-size: 34px;
+}
+
+.panel,
+.toolbar {
+  background: white;
+  border-radius: 26px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 12px 35px rgba(15, 23, 42, 0.08);
+}
+
+.panel-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.panel-title h2 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.panel-title p {
+  margin: 6px 0 0;
+  color: #64748b;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(120px, 1fr));
+  gap: 12px;
+}
+
+.form input,
+.date-input,
+.file-input,
+.form button,
+.toolbar input {
+  width: 100%;
+  min-height: 58px;
+  border-radius: 16px;
+  font-size: 14px;
+}
+
+.form input,
+.date-input,
+.file-input,
+.toolbar input {
+  border: 1px solid #dbe3ef;
+  background: white;
+  outline: none;
+  padding: 0 16px;
+}
+
+.form input:focus,
+.date-input:focus,
+.toolbar input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+}
+
+button {
+  border: 0;
+  background: #2563eb;
+  color: white;
+  cursor: pointer;
+  font-weight: 800;
+  border-radius: 16px;
+}
+
+button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.file-input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2563eb;
+  font-weight: 800;
+  cursor: pointer;
+  text-align: center;
+}
+
+.file-input input {
+  display: none;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.toolbar input {
+  max-width: 340px;
+}
+
+.tabs {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.tabs button {
+  background: #eef2ff;
+  color: #1e3a8a;
+  padding: 14px 18px;
+}
+
+.tabs button.selected {
+  background: #2563eb;
+  color: white;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(210px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  position: relative;
+  background: white;
+  border: 1px solid #e6edf7;
+  border-radius: 18px;
+  padding: 22px 16px 16px;
+  text-align: center;
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.08);
+  transition: 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
+}
+
+.avatar {
+  width: 78px;
+  height: 78px;
+  border-radius: 18px;
+  background: #dbeafe;
+  color: #1d4ed8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 12px;
+  overflow: hidden;
+  font-size: 24px;
+  font-weight: 900;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-label {
+  display: block;
+  color: #2563eb;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.7px;
+  margin-bottom: 5px;
+}
+
+.card h3 {
+  margin: 0 auto 5px;
+  color: #243044;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+  max-width: 155px;
+}
+
+.card p {
+  margin: 0 0 10px;
+  color: #64748b;
+  font-size: 13px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: #fef3c7;
+  color: #92400e;
+  font-size: 11px;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.badge.active {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.badge.done {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.date-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.date-box div {
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 10px 8px;
+  min-height: 66px;
+}
+
+.date-box b {
+  display: block;
+  color: #64748b;
+  font-size: 0;
+  margin-bottom: 5px;
+}
+
+.date-box div:first-child b::after {
+  content: "STAJ ARALIGI";
+  font-size: 10px;
+}
+
+.date-box div:last-child b::after {
+  content: "TOPLAM SURE";
+  font-size: 10px;
+}
+
+.date-box span {
+  display: block;
+  color: #0f172a;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.25;
+}
+
+.duration {
+  color: #64748b;
+  font-size: 14px;
+  margin-bottom: 18px;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.actions button {
+  min-height: 38px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 800;
+  padding: 0 10px;
+}
+
+.actions .secondary {
+  background: #f8fafc;
+  color: #334155;
+  border: 1px solid #e2e8f0;
+}
+
+.delete {
+  background: #ef4444;
+}
+
+.delete-icon {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 30px;
+  height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #fecaca;
+  border-radius: 9px;
+  background: #fff1f2;
+  color: #ef4444;
+  padding: 0;
+}
+
+.delete-icon svg {
+  width: 15px;
+  height: 15px;
+  fill: currentColor;
+}
+
+.toast {
+  position: fixed;
+  right: 24px;
+  top: 24px;
+  z-index: 999999;
+  background: #16a34a;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 16px;
+  font-weight: 800;
+  box-shadow: 0 16px 40px rgba(22, 163, 74, 0.25);
+}
+
+.dialog-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 999998;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 22px;
+  background: rgba(15, 23, 42, 0.42);
+  backdrop-filter: blur(8px);
+}
+
+.dialog {
+  position: relative;
+  width: min(440px, 100%);
+  max-height: calc(100vh - 44px);
+  overflow: auto;
+  border: 1px solid #e2e8f0;
+  border-radius: 22px;
+  background: #ffffff;
+  color: #111827;
+  padding: 24px;
+  box-shadow: 0 28px 80px rgba(15, 23, 42, 0.25);
+}
+
+.dialog-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: #f8fafc;
+  color: #475569;
+  border: 1px solid #e2e8f0;
+  font-size: 16px;
+  line-height: 1;
+  padding: 0;
+}
+
+.dialog-head {
+  padding-right: 38px;
+  margin-bottom: 18px;
+}
+
+.dialog-head span {
+  display: block;
+  color: #2563eb;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.8px;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.dialog-head h2 {
+  color: #0f172a;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.dialog-head p {
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-top: 8px;
+}
+
+.dialog-details {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.dialog-details div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 12px 14px;
+}
+
+.dialog-details b {
+  color: #64748b;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.dialog-details span {
+  color: #0f172a;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: right;
+}
+
+.status-options {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.status-options button {
+  min-height: 46px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: #f8fafc;
+  color: #334155;
+  font-size: 14px;
+}
+
+.status-options button.selected,
+.status-options button:hover {
+  border-color: #2563eb;
+  background: #eef2ff;
+  color: #1d4ed8;
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.dialog-actions button {
+  min-height: 42px;
+  min-width: 96px;
+  border-radius: 12px;
+  padding: 0 16px;
+}
+
+.dialog-actions .secondary {
+  background: #f8fafc;
+  color: #334155;
+  border: 1px solid #e2e8f0;
+}
+
+.dialog-actions .danger {
+  background: #ef4444;
+}
+
+.react-datepicker__portal {
+  background: rgba(15, 23, 42, 0.45);
+}
+
+.react-datepicker {
+  border-radius: 18px !important;
+  overflow: hidden;
+  border: 0 !important;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.22);
+}
+
+.react-datepicker__header {
+  position: relative;
+  padding: 14px 44px 10px !important;
+  background: #ffffff !important;
+  border-bottom: 1px solid #e5e7eb !important;
+}
+
+.react-datepicker__current-month {
+  color: #0f172a;
+  font-size: 18px !important;
+  font-weight: 800 !important;
+  line-height: 28px !important;
+  margin: 0 !important;
+}
+
+.react-datepicker__navigation {
+  top: 13px !important;
+  width: 30px !important;
+  height: 30px !important;
+  min-height: 30px !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  background: #f1f5f9 !important;
+  color: #334155 !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+}
+
+.react-datepicker__navigation:hover {
+  background: #e2e8f0 !important;
+}
+
+.react-datepicker__navigation--previous {
+  left: 12px !important;
+}
+
+.react-datepicker__navigation--next {
+  right: 12px !important;
+}
+
+.react-datepicker__navigation-icon {
+  top: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+}
+
+.react-datepicker__navigation-icon::before {
+  top: 9px !important;
+  width: 8px !important;
+  height: 8px !important;
+  border-color: #334155 !important;
+  border-width: 2px 2px 0 0 !important;
+}
+
+.react-datepicker__navigation-icon--previous::before {
+  left: 11px !important;
+}
+
+.react-datepicker__navigation-icon--next::before {
+  right: 11px !important;
+}
+
+.react-datepicker__day-name,
+.react-datepicker__day {
+  width: 2.1rem !important;
+  line-height: 2.1rem !important;
+  margin: 0.1rem !important;
+}
+
+.react-datepicker-wrapper,
+.react-datepicker__input-container {
+  width: 100%;
+}
+
+@media (max-width: 1100px) {
+  .stats,
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .form {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .toolbar input {
+    max-width: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .page {
+    width: calc(100% - 24px);
+    padding-top: 20px;
+  }
+
+  .stats,
+  .grid,
+  .form {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding: 32px 20px;
+  }
+
+  .hero-top {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+
+  .theme-controls {
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .theme-controls button {
+    flex: 1;
+  }
+
+  .hero h1 {
+    font-size: 34px;
+  }
+
+  .date-box {
+    grid-template-columns: 1fr;
+  }
+
+  .dialog {
+    padding: 22px 18px;
+  }
+
+  .dialog-details div {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .dialog-details span {
+    text-align: left;
+  }
+}
+
+.hero h1,
+.hero p,
+.hero span {
+  color: #ffffff !important;
+}
+
+.theme-controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 0;
+}
+
+.theme-controls button,
+.theme-controls select {
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+  min-height: 38px;
+  padding: 0 12px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  backdrop-filter: blur(14px);
+}
+
+.theme-controls button:hover,
+.theme-controls select:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.theme-controls select option {
+  color: #111827;
+}
+
+body.dark {
+  background: #0f172a;
+  color: #e5e7eb;
+}
+
+body.dark .panel,
+body.dark .toolbar,
+body.dark .stat-card,
+body.dark .card {
+  background: #111827;
+  color: #e5e7eb;
+}
+
+body.dark input,
+body.dark .date-input,
+body.dark .file-input,
+body.dark .toolbar input {
+  background: #0f172a;
+  color: #e5e7eb;
+  border-color: #334155;
+}
+
+body.dark .card p,
+body.dark .duration,
+body.dark .date-box b,
+body.dark .panel-title p,
+body.dark .stat-card span {
+  color: #94a3b8;
+}
+
+body.dark .date-box div {
+  border-color: #334155;
+}
+
+body.dark .card h3 {
+  color: #e2e8f0;
+}
+
+body.dark .date-box span {
+  color: #e5e7eb;
+}
+
+body.dark .actions .secondary {
+  background: #0f172a;
+  color: #cbd5e1;
+  border-color: #334155;
+}
+
+body.dark .delete-icon {
+  background: rgba(239, 68, 68, 0.12);
+  border-color: rgba(248, 113, 113, 0.35);
+  color: #f87171;
+}
+
+body.dark .dialog {
+  background: #111827;
+  color: #e5e7eb;
+  border-color: #334155;
+}
+
+body.dark .dialog-close,
+body.dark .status-options button,
+body.dark .dialog-actions .secondary {
+  background: #0f172a;
+  color: #cbd5e1;
+  border-color: #334155;
+}
+
+body.dark .dialog-head h2,
+body.dark .dialog-details span {
+  color: #e5e7eb;
+}
+
+body.dark .dialog-head p,
+body.dark .dialog-details b {
+  color: #94a3b8;
+}
+
+body.dark .dialog-details div {
+  border-color: #334155;
+}
+
+body.dark .status-options button.selected,
+body.dark .status-options button:hover {
+  background: rgba(37, 99, 235, 0.16);
+  color: #bfdbfe;
+  border-color: #3b82f6;
+}
