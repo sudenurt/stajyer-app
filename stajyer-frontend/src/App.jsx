@@ -270,7 +270,7 @@ function App() {
       completed: "Tamamlanan",
       newRecord: "Yeni Stajyer Kaydı",
       newDesc: "Bilgileri doldurup fotoğraf seçerek yeni kayıt oluşturun.",
-      name: "Ad",
+      name: "İsim",
       surname: "Soyad",
       department: "Departman",
       start: "Başlangıç Tarihi",
