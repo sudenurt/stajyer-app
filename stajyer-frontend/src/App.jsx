@@ -271,7 +271,7 @@ function App() {
       newRecord: "Yeni Stajyer Kaydı",
       newDesc: "Bilgileri doldurup fotoğraf seçerek yeni kayıt oluşturun.",
       name: "İsim",
-      surname: "Soyad",
+      surname: "Soyisim",
       department: "Departman",
       start: "Başlangıç Tarihi",
       end: "Bitiş Tarihi",
