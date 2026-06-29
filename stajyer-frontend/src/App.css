@@ -576,6 +576,9 @@ button:disabled {
   width: 30px !important;
   height: 30px !important;
   min-height: 30px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   border: 0 !important;
   border-radius: 999px !important;
   background: #f1f5f9 !important;
@@ -597,26 +600,27 @@ button:disabled {
 }
 
 .react-datepicker__navigation-icon {
-  top: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
-  display: block !important;
+  display: none !important;
 }
 
-.react-datepicker__navigation-icon::before {
-  top: 9px !important;
+.react-datepicker__navigation::before {
+  content: "" !important;
+  display: block !important;
   width: 8px !important;
   height: 8px !important;
   border-color: #334155 !important;
   border-width: 2px 2px 0 0 !important;
+  border-style: solid !important;
 }
 
-.react-datepicker__navigation-icon--previous::before {
-  left: 11px !important;
+.react-datepicker__navigation--previous::before {
+  transform: rotate(-135deg) !important;
+  margin-left: 3px !important;
 }
 
-.react-datepicker__navigation-icon--next::before {
-  right: 11px !important;
+.react-datepicker__navigation--next::before {
+  transform: rotate(45deg) !important;
+  margin-right: 3px !important;
 }
 
 .react-datepicker__day-name,
